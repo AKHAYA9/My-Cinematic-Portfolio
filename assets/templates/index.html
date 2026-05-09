@@ -1,0 +1,529 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Owner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <!-- Glowing Stars/Particles Overlay -->
+    <div class="stars-overlay" id="starsOverlay">
+        <div class="stars stars-sm"></div>
+        <div class="stars stars-md"></div>
+        <div class="stars stars-lg"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">MY WEBSITE</a>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                <li><a href="#works" class="nav-link">Services</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <video autoplay muted loop playsinline class="hero-video">
+                <source src="{% static 'video/home.mp4' %}" type="video/mp4">
+            </video>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-tagline">CLICK. CLACK. FULL STACK.</h1>
+            <h1 class="hero-tagline">WITH DL & ML</h1>
+            <h1 class="hero-title">DEVELOPER</h1>
+            <p class="hero-subtitle">Crafting Digital Experiences</p>
+            <a href="#portfolio" class="hero-btn">
+                <span>View My Work</span>
+                <div class="btn-glow"></div>
+            </a>
+        </div>
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <span>Scroll Down</span>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <video autoplay muted loop playsinline class="about-bg-video">
+            <source src="{% static 'video/About me.mp4' %}" type="video/mp4">
+        </video>
+        <div class="about-video-overlay"></div>
+        <div class="container">
+            <h2 class="section-title" data-reveal>About Me</h2>
+            <p class="section-subtitle" data-reveal>Passionate about creating innovative solutions</p>
+
+            <div class="about-content">
+                <div class="about-text" data-reveal="left">
+                    <p class="about-description">
+                        I'm a full-stack python With AI & ML <span class="white-highlight">developer</span> with a
+                        passion for creating beautiful,
+                        functional, and user-centered digital experiences. With expertise in modern web technologies, I
+                        transform ideas into elegant solutions that make a difference.
+                    </p>
+                    <p class="about-description">
+                        My approach combines technical excellence with creative problem-solving, ensuring every project
+                        not only meets but exceeds expectations. I believe in writing clean, maintainable code and
+                        staying current with the latest industry trends.
+                    </p>
+                </div>
+
+                <div class="about-image" data-reveal="right">
+                    <div class="image-wrapper">
+                        <img src="{% static 'img/passphoto1.jpg' %}" alt="Developer Workspace">
+                    </div>
+                </div>
+
+                <div class="about-stats">
+                    <div class="stat" data-reveal>
+                        <h3 class="counter" data-target="150">0</h3>
+                        <p>Projects Completed</p>
+                    </div>
+                    <div class="stat" data-reveal>
+                        <h3 class="counter" data-target="5">0</h3>
+                        <p>Years Technical Experience</p>
+                    </div>
+                    <div class="stat" data-reveal>
+                        <h3 class="counter" data-target="1.2">0</h3>
+                        <p>Years Company Experience</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <h2 class="section-title" data-reveal>Technical Expertise</h2>
+            <p class="section-subtitle" data-reveal style="max-width: 800px; margin-left: auto; margin-right: auto;">
+                I specialize in academic project development, professional technical training, and deployment-level
+                freelancing. I deliver high-performance solutions for multiple organizations, including Deccan AI
+                Experts, with a focus on scalable and robust architectures.
+            </p>
+
+            <div class="skills-slider">
+                <!-- Row 1: Core Skills -->
+                <div class="skills-track row-1">
+                    <!-- Set 1 -->
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/python.png' %}" alt="Python"></div>
+                        <p>Python</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/java.png' %}" alt="Java"></div>
+                        <p>Java</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/sql.png' %}" alt="SQL"></div>
+                        <p>SQL</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/Mysql.png' %}" alt="MySQL"></div>
+                        <p>MYSQL</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/Sqlite.png' %}" alt="SQLITE"></div>
+                        <p>SQLITE</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/mongodb.png' %}" alt="MongoDB"></div>
+                        <p>MongoDB</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/django.png' %}" alt="Django"></div>
+                        <p>Django</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/ML.png' %}" alt="Machine Learning">
+                        </div>
+                        <p>Machine Learning</p>
+                    </div>
+                    <!-- Set 1 Duplicate -->
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/python.png' %}" alt="Python"></div>
+                        <p>Python</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/java.png' %}" alt="Java"></div>
+                        <p>Java</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/sql.png' %}" alt="SQL"></div>
+                        <p>SQL</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/Mysql.png' %}" alt="MySQL"></div>
+                        <p>MYSQL</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/Sqlite.png' %}" alt="SQLITE"></div>
+                        <p>SQLITE</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/mongodb.png' %}" alt="MongoDB"></div>
+                        <p>MongoDB</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/django.png' %}" alt="Django"></div>
+                        <p>Django</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/ML.png' %}" alt="Machine Learning">
+                        </div>
+                        <p>Machine Learning</p>
+                    </div>
+                </div>
+
+                <!-- Row 2: AI & Data Science -->
+                <div class="skills-track row-2">
+                    <!-- Set 2 -->
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/DL.png' %}" alt="Deep Learning"></div>
+                        <p>Deep Learning</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/NLP.png' %}" alt="NLP"></div>
+                        <p>NLP</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/TF.png' %}" alt="TensorFlow"></div>
+                        <p>TensorFlow</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/pandas.png' %}" alt="Pandas"></div>
+                        <p>Pandas</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/numpy.png' %}" alt="NumPy"></div>
+                        <p>NumPy</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/MPL.png' %}" alt="Matplotlib"></div>
+                        <p>Matplotlib</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/git.png' %}" alt="Git"></div>
+                        <p>Git</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/github.png' %}" alt="GitHub"></div>
+                        <p>GitHub</p>
+                    </div>
+                    <!-- Set 2 Duplicate -->
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/DL.png' %}" alt="Deep Learning"></div>
+                        <p>Deep Learning</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/NLP.png' %}" alt="NLP"></div>
+                        <p>NLP</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/TF.png' %}" alt="TensorFlow"></div>
+                        <p>TensorFlow</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/pandas.png' %}" alt="Pandas"></div>
+                        <p>Pandas</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/numpy.png' %}" alt="NumPy"></div>
+                        <p>NumPy</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/MPL.png' %}" alt="Matplotlib"></div>
+                        <p>Matplotlib</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/git.png' %}" alt="Git"></div>
+                        <p>Git</p>
+                    </div>
+                    <div class="skill-card">
+                        <div class="skill-icon"><img src="{% static 'img/skills/github.png' %}" alt="GitHub"></div>
+                        <p>GitHub</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <h2 class="section-title" data-reveal>My Portfolio</h2>
+            <p class="section-subtitle" data-reveal>A showcase of my recent work</p>
+
+            <div class="portfolio-grid">
+                <!-- Position 1: NLP-based Inventory Management (Moved from 3rd) -->
+                <div class="portfolio-item" data-reveal data-video="{% static 'video/NLP-Project.mp4' %}">
+                    <div class="portfolio-image">
+                        <img src="{% static 'img/NLP_Based.png' %}" alt="NLP-based Inventory Management">
+                    </div>
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-content">
+                            <div class="play-trigger">
+                                <span class="play-label">Watch Preview</span>
+                            </div>
+                            <h3>NLP-based Inventory Management</h3>
+                            <p>Intelligent inventory system utilizing Natural Language Processing for automated stock
+                                management and intuitive querying.</p>
+                            <div class="portfolio-tags">
+                                <span>Django</span>
+                                <span>NLP</span>
+                                <span>T5</span>
+                                <span>Transformers</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Position 2: Enhanced AcneCheck AI (Stays in Middle) -->
+                <div class="portfolio-item" data-reveal data-video="{% static 'video/Acne.mp4' %}">
+                    <div class="portfolio-image">
+                        <img src="{% static 'img/Acne.png' %}" alt="Enhanced AcneCheck AI">
+                        <div class="accuracy-badge">90.74% Accuracy</div>
+                    </div>
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-content">
+                            <div class="play-trigger">
+                                <span class="play-label">Watch Preview</span>
+                            </div>
+                            <h3>Enhanced AcneCheck AI</h3>
+                            <p>Diagnostic system with Hybrid VGG16+ResNet50+YOLOv5 architecture. Delivers real-time spot
+                                localization and +6.5% efficiency over baseline research.</p>
+                            <div class="portfolio-tags">
+                                <span>YOLOv5</span>
+                                <span>DCGAN v2</span>
+                                <span>Transfer Learning</span>
+                                <span>PyTorch</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Position 3: StackOverflow Post Quality Detection (New) -->
+                <div class="portfolio-item" data-reveal data-video="{% static 'video/Post_q.mp4' %}">
+                    <div class="portfolio-image">
+                        <img src="{% static 'img/post_q.png' %}" alt="StackOverflow Post Quality Detection">
+                    </div>
+                    <div class="portfolio-overlay">
+                        <div class="portfolio-content">
+                            <div class="play-trigger">
+                                <span class="play-label">Watch Preview</span>
+                            </div>
+                            <h3>StackOverflow Post Quality Detection</h3>
+                            <p>Intelligent classification system leveraging BERT and NLP to predict the quality of
+                                technical posts with high precision.</p>
+                            <div class="portfolio-tags">
+                                <span>ML</span>
+                                <span>NLP</span>
+                                <span>Django</span>
+                                <span>BERT</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Works I Do Section -->
+    <section id="works" class="works-section">
+        <div class="container">
+            <h2 class="section-title" data-reveal>Professional Services</h2>
+            <p class="section-subtitle" data-reveal>Comprehensive services from academic research to enterprise
+                deployment</p>
+
+            <div class="works-grid">
+                <!-- Academic Projects -->
+                <div class="work-card" data-reveal="left">
+                    <div class="work-icon">🎓</div>
+                    <h3>Academic Projects</h3>
+                    <p class="work-desc">Advanced college-level project development and research assistance.</p>
+                    <ul class="work-list">
+                        <li>Machine Learning</li>
+                        <li>Deep Learning</li>
+                        <li>Natural Language Processing (NLP)</li>
+                        <li>Generative AI (GenAI)</li>
+                        <li>Cybersecurity</li>
+                        <li>Blockchain Technology</li>
+                        <li>Java Development</li>
+                    </ul>
+                </div>
+
+                <!-- Technical Training -->
+                <div class="work-card" data-reveal>
+                    <div class="work-icon">👨‍🏫</div>
+                    <h3>Technical Training</h3>
+                    <p class="work-desc">Professional mentorship and hands-on training for modern stacks.</p>
+                    <ul class="work-list">
+                        <li>Django Framework</li>
+                        <li>Python Programming</li>
+                        <li>End-to-End Project Development</li>
+                        <li>API Design & Integration</li>
+                    </ul>
+                </div>
+
+                <!-- Deployment Freelancing -->
+                <div class="work-card" data-reveal="right">
+                    <div class="work-icon">🚀</div>
+                    <h3>Freelancing</h3>
+                    <p class="work-desc">Deployment-level solutions and module-specific optimization.</p>
+                    <ul class="work-list">
+                        <li>Django Web Applications</li>
+                        <li>ML/DL Module Integration</li>
+                        <li>RESTful API & FastAPI</li>
+                        <li>Data Preprocessing & Cleaning</li>
+                        <li>Model Training & Fine-tuning</li>
+                        <li>Cloud Deployment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" data-reveal>Get In Touch</h2>
+            <p class="section-subtitle" data-reveal>Let's work together on your next project</p>
+
+            <div class="contact-content">
+                <form class="contact-form" id="contactForm" data-reveal="left">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <span class="form-line"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <span class="form-line"></span>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
+                        <span class="form-line"></span>
+                    </div>
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span>Send Message</span>
+                        <div class="btn-glow"></div>
+                    </button>
+                    <div id="formStatus" class="form-status"></div>
+                </form>
+
+                <div class="contact-info" data-reveal="right">
+                    <div class="info-item">
+                        <div class="info-icon">📧</div>
+                        <div class="info-content">
+                            <h3>Email</h3>
+                            <p><a href="mailto:hello@developer.com">akhayakumardash77@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">📱</div>
+                        <div class="info-content">
+                            <h3>Phone</h3>
+                            <p>+91 72059 77480</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div class="info-content">
+                            <h3>Location</h3>
+                            <p>INDIA, HYDRABAD</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">🔗</div>
+                        <div class="info-content">
+                            <h3>Follow Me</h3>
+                            <div class="social-links">
+                                <a href="https://github.com/AKHAYA9" class="social-link">GitHub</a>
+                                <a href="https://www.linkedin.com/in/akhaya-kumar-dash/"
+                                    class="social-link">LinkedIn</a>
+                                <a href="https://twitter.com/akhaya40515" class="social-link">Twitter</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#privacy" id="privacyLink">Privacy</a>
+                <a href="#terms" id="termsLink">Terms</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Privacy & Terms Modal -->
+    <div class="info-modal" id="infoModal">
+        <div class="info-modal-overlay"></div>
+        <div class="info-modal-content" data-reveal>
+            <div class="info-modal-header">
+                <h3 id="infoModalTitle">Privacy Policy</h3>
+                <button class="info-modal-close" id="infoModalClose">&times;</button>
+            </div>
+            <div class="info-modal-body" id="infoModalBody">
+                <!-- Content will be injected by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Video Modal -->
+    <div class="modal fade video-modal-bs" id="videoModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-0">
+                    <video id="modalVideo" controls muted class="w-100">
+                        <source src="" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="{% static 'js/script.js' %}"></script>
+</body>
+
+</html>

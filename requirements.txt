@@ -1,0 +1,15 @@
+django>=5.0
+python-dotenv
+whitenoise[brotli]
+gunicorn
+psycopg2-binary
+Pillow
+django-environ
+requests
+pandas
+numpy
+# Add any AI/ML libraries if they are strictly needed on the server side
+# Note: For free tiers, heavy ML libraries (torch/tensorflow) might exceed limits.
+# transformers
+# torch
+# ultralytics
