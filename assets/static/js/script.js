@@ -35,6 +35,9 @@ function initNavigation() {
                 if (navMenu.classList.contains('active')) {
                     navMenu.classList.remove('active');
                 }
+                if (navToggle && navToggle.classList.contains('active')) {
+                    navToggle.classList.remove('active');
+                }
                 
                 targetSection.scrollIntoView({
                     behavior: 'smooth',
@@ -719,3 +722,46 @@ function initInfoModals() {
         }
     });
 }
+
+// ============================================
+// GOOGLE AUTOFILL CREDENTIAL HANDLER
+// ============================================
+
+function decodeJwtResponse(token) {
+    let base64Url = token.split('.')[1];
+    let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    let jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+    return JSON.parse(jsonPayload);
+}
+
+window.handleCredentialResponse = function(response) {
+    try {
+        const responsePayload = decodeJwtResponse(response.credential);
+        
+        // Find fields
+        const nameInput = document.querySelector('input[name="name"]');
+        const emailInput = document.querySelector('input[name="email"]');
+        const messageInput = document.querySelector('textarea[name="message"]');
+        
+        if (nameInput) {
+            nameInput.value = responsePayload.name;
+            nameInput.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+        if (emailInput) {
+            emailInput.value = responsePayload.email;
+            emailInput.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+        if (messageInput) {
+            const firstName = responsePayload.given_name || responsePayload.name;
+            messageInput.value = `hlo this side ${firstName} and I am interested in your portfolio projects. Let's connect!`;
+            messageInput.dispatchEvent(new Event('input', { bubbles: true }));
+        }
+        
+        console.log('Form autofilled with Google profile details!');
+    } catch (e) {
+        console.error('Error handling Google credential response:', e);
+        alert('Failed to retrieve profile details from Google: ' + e.message);
+    }
+};
