@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initDraggableReels();
     initVideoModal();
     initInfoModals();
+    initProfileEasterEgg();
     removeCloudOverlay();
 });
 
@@ -64,6 +65,18 @@ function initNavigation() {
             this.classList.toggle('active');
         });
     }
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (navMenu && navMenu.classList.contains('active')) {
+            if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+                navMenu.classList.remove('active');
+                if (navToggle) {
+                    navToggle.classList.remove('active');
+                }
+            }
+        }
+    });
     
     // Update active navigation based on scroll position
     updateActiveNavigation();
@@ -481,6 +494,11 @@ function initVideoModal() {
     modalEl.addEventListener('hidden.bs.modal', () => {
         modalVideo.pause();
         modalVideo.querySelector('source').src = '';
+        
+        // Remove focus from elements inside the hidden modal to prevent ARIA accessibility warning
+        if (document.activeElement && modalEl.contains(document.activeElement)) {
+            document.activeElement.blur();
+        }
     });
 }
 
@@ -765,3 +783,69 @@ window.handleCredentialResponse = function(response) {
         alert('Failed to retrieve profile details from Google: ' + e.message);
     }
 };
+
+// ============================================
+// PROFILE IMAGE EASTER EGG (Speech Bubble)
+// ============================================
+function initProfileEasterEgg() {
+    const profiles = document.querySelectorAll('.desktop-user-profile, .mobile-user-profile');
+    
+    profiles.forEach(profile => {
+        // Prevent trigger conflicts and pointer confusion
+        profile.style.cursor = 'pointer';
+        
+        profile.addEventListener('click', function(e) {
+            e.stopPropagation();
+            
+            // Remove any existing active bubbles
+            const existingBubble = document.querySelector('.speech-bubble');
+            if (existingBubble) {
+                existingBubble.remove();
+            }
+            
+            // Create bubble element
+            const bubble = document.createElement('div');
+            bubble.className = 'speech-bubble';
+            bubble.innerHTML = 'Hey there! Scroll down to know more about me! 👇';
+            
+            // Position below header navbar (appended to body to bypass overflow:hidden clipping)
+            document.body.appendChild(bubble);
+            const rect = this.getBoundingClientRect();
+            const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            // Calculate left position so arrow (right: 25px) lines up with avatar center
+            let leftPos = rect.left + scrollLeft + (rect.width / 2) - 265;
+            if (leftPos < 10) {
+                leftPos = 10;
+            }
+            bubble.style.left = `${leftPos}px`;
+            bubble.style.top = `${rect.bottom + scrollTop + 12}px`;
+            
+            // Trigger transition
+            setTimeout(() => {
+                bubble.classList.add('show');
+            }, 50);
+            
+            // Close bubble immediately when clicking anywhere else
+            const closeBubble = () => {
+                bubble.classList.remove('show');
+                setTimeout(() => {
+                    bubble.remove();
+                }, 300);
+                document.removeEventListener('click', closeBubble);
+            };
+            
+            setTimeout(() => {
+                document.addEventListener('click', closeBubble);
+            }, 50);
+            
+            // Auto-remove after 4 seconds if not clicked
+            setTimeout(() => {
+                if (document.body.contains(bubble)) {
+                    closeBubble();
+                }
+            }, 4000);
+        });
+    });
+}
