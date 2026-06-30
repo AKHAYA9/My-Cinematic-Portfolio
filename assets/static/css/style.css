@@ -157,7 +157,7 @@ body {
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
     z-index: 10000;
-    padding: 0.8rem 0;
+    padding: 0.4rem 0;
     opacity: 0;
     animation: fadeInNav 0.8s ease-in-out 0.5s forwards;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
@@ -179,7 +179,7 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
-    min-height: 80px;
+    min-height: 60px;
 }
 
 .nav-logo {
@@ -845,7 +845,8 @@ body {
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.portfolio-item:hover {
+.portfolio-item:hover,
+.portfolio-item.active {
     transform: translateY(-15px) scale(1.02);
     border-color: var(--secondary-color);
     box-shadow: 0 25px 50px rgba(135, 206, 235, 0.2);
@@ -863,7 +864,8 @@ body {
     transition: transform 0.5s ease;
 }
 
-.portfolio-item:hover .portfolio-image img {
+.portfolio-item:hover .portfolio-image img,
+.portfolio-item.active .portfolio-image img {
     transform: scale(1.1);
 }
 
@@ -885,7 +887,8 @@ body {
     justify-content: flex-end;
 }
 
-.portfolio-item:hover .portfolio-overlay {
+.portfolio-item:hover .portfolio-overlay,
+.portfolio-item.active .portfolio-overlay {
     transform: translateY(0);
     opacity: 1;
     visibility: visible;
@@ -1487,7 +1490,8 @@ body {
 }
 
 /* Hide accuracy badge on hover to prevent collision with preview/live buttons */
-.portfolio-item:hover .accuracy-badge {
+.portfolio-item:hover .accuracy-badge,
+.portfolio-item.active .accuracy-badge {
     opacity: 0;
     visibility: hidden;
 }
@@ -1659,14 +1663,16 @@ body {
     }
 }
 
-.portfolio-item:hover .play-trigger {
+.portfolio-item:hover .play-trigger,
+.portfolio-item.active .play-trigger {
     transform: scale(1.1);
     background: rgba(135, 206, 235, 0.3);
     box-shadow: 0 0 40px rgba(135, 206, 235, 0.7);
     border-color: #fff;
 }
 
-.portfolio-item:hover .play-label {
+.portfolio-item:hover .play-label,
+.portfolio-item.active .play-label {
     color: #fff;
 }
 
@@ -1825,6 +1831,37 @@ body {
 .info-modal-body::-webkit-scrollbar-thumb {
     background: rgba(135, 206, 235, 0.3);
     border-radius: 3px;
+}
+
+/* Media Queries for Technical Expertise (max-width: 768px) */
+@media (max-width: 768px) {
+    .skills-section {
+        padding: 4rem 0;
+    }
+    .skills-slider {
+        margin-top: 2rem;
+    }
+    .skills-track {
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    .skill-card {
+        flex: 0 0 150px;
+        padding: 1.2rem 1rem;
+        border-radius: 15px;
+    }
+    .skill-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 1rem;
+    }
+    .skill-card img {
+        width: 35px;
+        height: 35px;
+    }
+    .skill-card p {
+        font-size: 0.9rem;
+    }
 }
 
 /* Mobile Screens Optimization (max-width: 576px) */

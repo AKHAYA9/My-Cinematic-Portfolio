@@ -475,7 +475,18 @@ function initVideoModal() {
     const bsModal = new bootstrap.Modal(modalEl);
 
     portfolioItems.forEach(item => {
-        item.addEventListener('click', () => {
+        item.addEventListener('click', (e) => {
+            const isMobile = window.innerWidth <= 768;
+            if (isMobile) {
+                if (!item.classList.contains('active')) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    portfolioItems.forEach(i => i.classList.remove('active'));
+                    item.classList.add('active');
+                    return;
+                }
+            }
+            
             const videoUrl = item.getAttribute('data-video');
             if (videoUrl) {
                 modalVideo.querySelector('source').src = videoUrl;
@@ -483,6 +494,13 @@ function initVideoModal() {
                 bsModal.show();
             }
         });
+    });
+
+    // Dismiss active portfolio items on tapping outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.portfolio-item')) {
+            portfolioItems.forEach(item => item.classList.remove('active'));
+        }
     });
 
     // Auto-play when modal is shown
